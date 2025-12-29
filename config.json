@@ -1,0 +1,39 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 8080,
+      "listen": "0.0.0.0",
+      "protocol": "trojan",
+      "settings": {
+        "clients": [
+          {
+            "password": "MTN-TROJAN-SECURE-2025"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/mtnws",
+          "headers": {
+            "Host": "chat.mtn.bj"
+          }
+        }
+      },
+      "mux": {
+        "enabled": true,
+        "concurrency": 4
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}
